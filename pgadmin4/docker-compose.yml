@@ -1,0 +1,16 @@
+services:
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: darter00
+    ports:
+      - "5050:80"
+    volumes:
+      - ./pgadmin_data:/var/lib/pgadmin
+      - ./pgadmin4_serverx.json:/var/lib/pgadmin/servers.json
+      - ./upload:/var/lib/pgadmin/storage/admin_example.com
+      
+volumes:
+  pgadmin_data:
